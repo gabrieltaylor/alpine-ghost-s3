@@ -11,42 +11,41 @@ config = {
     // When running Ghost in the wild, use the production environment.
     // Configure your URL and mail settings here
     production: {
-        url: process.env.SITE_URL || 'http://my-ghost-blog.com',
+        url: process.env.GHOST_SITE_URL || 'http://my-ghost-blog.com',
         mail: {
-            from: process.env.MAIL_FROM || 'no-reply@my-ghost-blog.com',
+            from: process.env.GHOST_MAIL_FROM || 'no-reply@my-ghost-blog.com',
             transport: 'SMTP',
             options: {
-                host: process.env.SMTP_HOST || 'YOUR-SES-SERVER-NAME',
-                port: process.env.SMTP_PORT || 465,
+                host: process.env.GHOST_SMTP_HOST || 'YOUR-SES-SERVER-NAME',
+                port: process.env.GHOST_SMTP_PORT || 465,
                 service: 'SES',
                 auth: {
-                    user: process.env.SMTP_USER || 'YOUR-SES-ACCESS-KEY-ID',
-                    pass: process.env.SMTP_PASS || 'YOUR-SES-SECRET-ACCESS-KEY'
+                    user: process.env.GHOST_SMTP_USER || 'YOUR-SES-ACCESS-KEY-ID',
+                    pass: process.env.GHOST_SMTP_PASS || 'YOUR-SES-SECRET-ACCESS-KEY'
                 }
             }
         },
         database: {
             client: 'postgres',
             connection: {
-                host: process.env.PG_HOST || 'database address',
-                user: process.env.PG_USER || 'username',
-                password: process.env.PG_PASS || 'password',
-                database: process.env.PG_DB || 'databasename',
-                port: process.env.PG_PORT || '5432'
+                host: process.env.GHOST_DB_HOST || 'database address',
+                user: process.env.GHOST_DB_USER || 'username',
+                password: process.env.GHOST_DB_PASSWORD || 'password',
+                port: process.env.GHOST_DB_PORT || '5432'
             },
         },
         storage: {
             active: 'ghost-s3',
             'ghost-s3': {
-                accessKeyId: process.env.S3_KEYID || 'derpaderp',
-                secretAccessKey: process.env.S3_ACCESSKEY || 'derpaderp',
-                bucket: process.env.S3_BUCKET || 'ghostbucket',
-                region: process.env.S3_REGION || 'us-east-1'
+                accessKeyId: process.env.GHOST_AWS_KEY_ID || 'foo',
+                secretAccessKey: process.env.GHOST_AWS_SECRET_ACCESS_KEY || 'bar',
+                bucket: process.env.GHOST_S3_BUCKET || 'ghostbucket',
+                region: process.env.GHOST_S3_REGION || 'us-east-1'
             }
         },
         server: {
-            host: process.env.SITE_HOST || '0.0.0.0',
-            port: process.env.SITE_PORT || '2368'
+            host: process.env.GHOST_SITE_HOST || '0.0.0.0',
+            port: process.env.GHOST_SITE_PORT || '2368'
         }
     },
 

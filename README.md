@@ -1,6 +1,4 @@
-# alpine-ghost-s3
-
-**USE AT YOUR OWN RISK!** This is just a proof of concept.
+# Ghost
 
 This container is a simple example of how to deploy ghost using S3 as the storage backend and PostgreSQL as the database. Benefits:
 

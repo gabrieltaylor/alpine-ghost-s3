@@ -1,0 +1,18 @@
+version: '2'
+services:
+  web:
+    build:
+      context: .
+    depends_on:
+      - db
+    environment:
+      GHOST_DB_HOST: db
+      GHOST_DB_PORT: 5432
+      GHOST_DB_USER: postgres
+      GHOST_DB_PASSWORD: p0stgres
+    ports:
+      - '2368:2368'
+  db:
+    image: kiasaki/alpine-postgres:9.4
+    environment:
+      POSTGRES_PASSWORD: p0stgres
